@@ -2,16 +2,17 @@ function draw_one_frame(cur_frac) {
 	let sun_size = canvasHeight/8;
   
 	noStroke();
-	fill(100, 100, 214);
+	fill(235, 154, 90);
 	rect(0, 0, width, height);
   
-	fill(0, 200, 0);
-	rect(0, height/3, width, height*2/3);
+	fill(200, 119, 55);
+	rect(0, height/2, width, height/4);
   
 	stroke(0);
+	line(0, height*3/4, width, height*3/4)
 	line(width/2, 0, width/2, height/2);
-	line(0.30*width, 0, 0.10*width, height/2);
-	line(0.70*width, 0, 0.90*width, height/2);
+	line(0.30*width, 0, 0, height/2);
+	line(0.70*width, 0, width, height/2);
   
 	strokeWeight(10);
 	let grid_points = [
