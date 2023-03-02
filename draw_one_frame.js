@@ -7,6 +7,9 @@ function draw_one_frame(cur_frac) {
   
 	fill(200, 119, 55);
 	rect(0, height/2, width, height/4);
+
+	fill(200);
+	rect(0, height*3/4, width, height/4);
   
 	stroke(0);
 	line(0, height*3/4, width, height*3/4)
