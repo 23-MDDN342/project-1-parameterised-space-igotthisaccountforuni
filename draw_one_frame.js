@@ -24,7 +24,7 @@ function draw_one_frame(cur_frac) {
 	  0.20 * height,
 	  0.30 * height,
 	  0.40 * height,
-	  0.50 * height,
+	  0.50 * height
 	]
   
 	if (debugView) {
