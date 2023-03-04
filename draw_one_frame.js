@@ -1,6 +1,4 @@
 function draw_one_frame(cur_frac) {
-	let sun_size = canvasHeight/8;
-  
 	noStroke();
 	fill(235, 154, 90);
 	rect(0, 0, width, height);
@@ -19,12 +17,12 @@ function draw_one_frame(cur_frac) {
   
 	strokeWeight(10);
 	let grid_points = [
-	  0.0 * height,
-	  0.10 * height,
-	  0.20 * height,
-	  0.30 * height,
-	  0.40 * height,
-	  0.50 * height
+	  0.0 * width,
+	  0.10 * width,
+	  0.20 * width,
+	  0.30 * width,
+	  0.40 * width,
+	  0.50 * width
 	]
   
 	if (debugView) {
