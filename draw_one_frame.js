@@ -4,6 +4,7 @@ function draw_one_frame(cur_frac) {
 	noStroke();
 	fill(180);
 	rect(0, height * 0.4, width, 0.3*height )
+	// console.log(width);
 
 	let conveyerPoints = [
 	  0.0 * width,
@@ -14,20 +15,14 @@ function draw_one_frame(cur_frac) {
 	  1.00 * width,
 		1.20 * width
 	]
-	let foodPoints = [
-		0.60 * width,
-	  0.80 * width,
-	  1.00 * width,
-		1.20 * width
-	]
 
-	if (debugView) {
-	  strokeWeight(1);
-	  stroke(255, 0, 0);
-	  for(let i=0; i<conveyerPoints.length; i++) {
-		line(0, conveyerPoints[i], width, conveyerPoints[i]);
-	  }
-	}
+	// if (debugView) {
+	//   strokeWeight(1);
+	//   stroke(255, 0, 0);
+	//   for(let i=0; i<conveyerPoints.length; i++) {
+	// 	line(0, conveyerPoints[i], width, conveyerPoints[i]);
+	//   }
+	// }
 
 	for(let i=0; i<conveyerPoints.length-1; i++) { 																//conveyer belt + plates
 	  let curConveyerPos = map(cur_frac, 0, 1, conveyerPoints[i], conveyerPoints[i+1])
@@ -36,16 +31,33 @@ function draw_one_frame(cur_frac) {
 		line(curConveyerPos, 0.4 * height , curConveyerPos, 0.7 * height);
 		fill(240);
 		noStroke();
-		ellipse(curConveyerPos - 95 , 0.55 * height, 150, 150);
+		ellipse(curConveyerPos - width / 10.1 , 0.55 * height, width / 6.4, width / 6.4);
 		fill(235);
-		ellipse(curConveyerPos - 95 , 0.55 * height, 130, 130);
+		ellipse(curConveyerPos - width / 10.1 , 0.55 * height, width / 7.4, width / 7.4);
 	}
 
-	for(let i=0; i<foodPoints.length-1; i++) { 																		//sushi
-	  let curFoodPos = map(cur_frac, 0, 1, foodPoints[i], foodPoints[i+1])
-		strokeWeight(5);
+	for(let i=3; i<conveyerPoints.length-1; i++) { 																		//sushi
+	  let curFoodPos = map(cur_frac, 0, 1, conveyerPoints[i], conveyerPoints[i+1])
+		strokeWeight(height/120);
 		stroke(9, 82, 9);
 		fill(240);
-		ellipse(curFoodPos - 95, 0.55 * height, 50, 50);
+		ellipse(curFoodPos - width / 10.1, 0.55 * height, width / 19.2, width /19.2);
+	}
+
+	for(let i=2; i<conveyerPoints.length-1; i++) { 																		//wasabi
+	  let curFoodPos = map(cur_frac, 0, 1, conveyerPoints[i], conveyerPoints[i+1])
+		strokeWeight(5);
+		noStroke();
+		fill(105, 166, 7);
+		ellipse(curFoodPos - width/8, 0.625 * height, width / 38.4, width / 38.4);
+	}
+
+	for(let i=1; i<conveyerPoints.length-1; i++) { 																		//ginger
+	  let curFoodPos = map(cur_frac, 0, 1, conveyerPoints[i], conveyerPoints[i+1])
+		strokeWeight(5);
+		noStroke();
+		rectMode(CENTER);
+		fill(232, 158, 118);
+		rect(curFoodPos - width/7.9, 0.475 * height, width / 38.4, width/48);
 	}
 }
