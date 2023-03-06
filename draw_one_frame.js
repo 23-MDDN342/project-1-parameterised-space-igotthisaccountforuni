@@ -1,6 +1,6 @@
 function draw_one_frame(cur_frac) {
 	// chopping board colour fill(235, 154, 90);
-	background(235, 154, 90)
+	background(245)
 	noStroke();
 	fill(180);
 	rect(0, height * 0.4, width, 0.3*height )
@@ -66,7 +66,7 @@ function draw_one_frame(cur_frac) {
 
 		fill(200);
 		rect(width/18, 0, width / 20, 240);
-		for(let i=0; i<conveyerPoints.length-2; i++) { 																//conveyer belt + plates
+		for(let i=0; i<conveyerPoints.length-2; i++) { 																//ginger conveyer
 		  let curConveyerPos2 = map(cur_frac, 0, 1, conveyerPoints[i], conveyerPoints[i+1])
 			strokeWeight(0.2);
 			stroke(0);
@@ -74,5 +74,19 @@ function draw_one_frame(cur_frac) {
 			noStroke();
 			fill(232, 158, 118);
 			rect(width/15, curConveyerPos2/4, width / 38.4, width/48);
+		}
+		fill(9, 82, 9);
+		beginShape();
+		vertex(width/3.9, height);
+		vertex(width/3.9, height/1.25);
+		vertex(width/3.65, height/1.5);
+		vertex(width/3.5, height/1.5);
+		vertex(width/3.3, height/1.25);
+		vertex(width/3.3, height);
+		endShape(CLOSE);
+		for(let i=0; i<conveyerPoints.length-2; i++) {
+			let curWasabiPos = map(cur_frac, 1, 0, conveyerPoints[i], conveyerPoints[i+1]);
+			ellipse(width/3.575, curWasabiPos/4 + height*3/4, width / 18, width/18);
+
 		}
 }
