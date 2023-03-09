@@ -3,15 +3,6 @@ function draw_one_frame(cur_frac) {
 	background(150);
 	stroke(0);
 	fill(180);
-	// console.log(width);
-
-	// if (debugView) {
-		//   strokeWeight(1);
-		//   stroke(255, 0, 0);
-		//   for(let i=0; i<conveyerWidths.length; i++) {
-			// 	line(0, conveyerWidths[i], width, conveyerWidths[i]);
-			//   }
-			// }
 
 	let conveyerWidths = [
 	  0,
@@ -70,5 +61,5 @@ function draw_one_frame(cur_frac) {
 			swayPos = map(cur_frac, 0.51, 1, height*4/5, height/5);
 		}
 		rectMode(CENTER);
-		rect(width * 0.7, swayPos, width * 0.1, width * 0.1);
+		rect(width * 0.5, swayPos, width * 0.1, width * 0.1);
 }

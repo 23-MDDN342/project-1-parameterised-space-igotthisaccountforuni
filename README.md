@@ -3,8 +3,3 @@
 I wanted to emulate the common food gifs that I have seen across the internet
 
 Started with it being a "front scroll" base, however, I have changed to side scroll and swapped the perspective to incorporate more into the repetitions.
-
-Frame sizes:
-Normal - H540, W960
-Large -
-X Large -
