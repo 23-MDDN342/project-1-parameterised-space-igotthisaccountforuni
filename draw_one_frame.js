@@ -63,12 +63,12 @@ function draw_one_frame(cur_frac) {
 			line(curConveyerPos, 0.4 * height , curConveyerPos, 0.7 * height);
 		}
 
-		// let swayPos																															//sway thing
-		// if (cur_frac < 0.51) {
-		// 	swayPos = map(cur_frac, 0, 0.5, height/5, height*4/5 );
-		// }else{
-		// 	swayPos = map(cur_frac, 0.51, 1, height*4/5, height/5);
-		// }
-		// rectMode(CENTER);
-		// rect(width * 0.7, swayPos, 50, 50);
+		let swayPos;																															//sway thing
+		if (cur_frac < 0.51) {
+			swayPos = map(cur_frac, 0, 0.5, height/5, height*4/5 );
+		}else{
+			swayPos = map(cur_frac, 0.51, 1, height*4/5, height/5);
+		}
+		rectMode(CENTER);
+		rect(width * 0.7, swayPos, width * 0.1, width * 0.1);
 }
