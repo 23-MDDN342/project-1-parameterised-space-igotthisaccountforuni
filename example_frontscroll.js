@@ -5,11 +5,8 @@ function draw_one_frame(cur_frac) {
   fill(100, 100, 214);
   rect(0, 0, width, height);
 
-  fill(255, 255, 0);
-  ellipse(width/2, height/2, sun_size);
-
   fill(0, 200, 0);
-  rect(0, height/2, width, height/2);
+  rect(0, height/3, width, height/2);
 
   stroke(0);
   line(width/2, height/2, width/2, height);
