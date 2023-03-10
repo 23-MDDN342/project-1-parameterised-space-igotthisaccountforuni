@@ -1,9 +1,5 @@
 function draw_one_frame(cur_frac) {
-	// chopping board colour fill(235, 154, 90);
 	background(150);
-	stroke(0);
-	fill(180);
-
 	let conveyerWidths = [
 	  0,
 	  0.20 * width,
@@ -23,7 +19,7 @@ function draw_one_frame(cur_frac) {
 	  1.00 * height,
 		1.20 * height
 	]
-
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		stroke(0);
 		fill(180);
 		for(let i = 0 ; i < conveyerWidths.length-1 ; i++) { 												//conveyers
@@ -48,7 +44,7 @@ function draw_one_frame(cur_frac) {
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		push();
 		rectMode(CENTER);
-		rect(width/2, height * 0.5, width, 0.3*height);																		//main conveyer
+		rect(width/2, height * 0.5, width, 0.3*height);															//main conveyer
 		pop();
 		for(let i = 0; i < conveyerWidths.length-1 ; i++) {
 		  let curConveyerPos = map(cur_frac, 0, 1, conveyerWidths[i], conveyerWidths[i+1]);
@@ -66,28 +62,43 @@ function draw_one_frame(cur_frac) {
 			rect(curConveyerPos - width * 0.1, height * 0.5, width * 0.1, width * 0.1);
 			pop();
 		}
-		for(let i = 0; i < conveyerWidths.length-4 ; i++) {													//boxes
+		for(let i = 3; i < conveyerWidths.length-1 ; i++) {													//tape
 			let curConveyerPos = map(cur_frac, 0, 1, conveyerWidths[i], conveyerWidths[i+1]);
 			push();
 			fill(255);
 			stroke(189, 131, 45);
 			rectMode(CENTER);
-			rect(curConveyerPos - width * 0.1, height * 0.5, width * 0.1, width * 0.1);
+			rect(curConveyerPos - width * 0.1, height * 0.5, width * 0.02, width * 0.1);
+			fill(200, 30, 0);
+			rect(curConveyerPos - width * 0.1, height * 0.46, width * 0.02, width * 0.02);
+			rect(curConveyerPos - width * 0.1, height * 0.54, width * 0.02, width * 0.02);
+			pop();
+		}
+		for(let i = 0; i < conveyerWidths.length-4 ; i++) {													//folds
+			let curConveyerPos = map(cur_frac, 0, 1, conveyerWidths[i], conveyerWidths[i+1]);
+			push();
+			fill(242, 182, 92);
+			stroke(189, 131, 45);
+			rectMode(CENTER);
+			rect(curConveyerPos - width * 0.165, height * 0.5, width * 0.04, width * 0.1);
+			rect(curConveyerPos - width * 0.035, height * 0.5, width * 0.04, width * 0.1);
 			pop();
 		}
 
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		let swayPos;																																//sway thing
+		stroke(0);
 		if (cur_frac < 0.26) {
-			swayPos = map(cur_frac, 0, 0.25, height*2/4, height*3/4 );
+			swayPos = map(cur_frac, 0, 0.25, height / 2, height * 7/8 );
 		}else if (cur_frac < 0.51) {
-			swayPos = map(cur_frac, 0.26, 0.5, height*3/4, height*2/4);
+			swayPos = map(cur_frac, 0.26, 0.5, height * 7/8, height / 2);
 		}else if (cur_frac < 0.76) {
-			swayPos = map(cur_frac, 0.51, 0.75, height*2/4, height/4);
+			swayPos = map(cur_frac, 0.51, 0.75, height / 2, height / 8);
 		}else {
-			swayPos = map(cur_frac, 0.76, 1, height/4, height*2/4);
+			swayPos = map(cur_frac, 0.76, 1, height / 8, height / 2);
 		}
-
 		rectMode(CENTER);
 		rect(width * 0.5, swayPos, width * 0.15, width * 0.15);
+		rect(width/2, height/2, width * 0.05, height);
 }
