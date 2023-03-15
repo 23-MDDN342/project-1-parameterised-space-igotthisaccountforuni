@@ -43,6 +43,12 @@ function draw_one_frame(cur_frac) {
 				fill(noiseColour);
 				stroke(189, 131, 45);
 				rect(conveyerWidths[i] + width * 0.05, curConveyerPos + conveyerHeights[j] - height * 0.3, width * 0.05, width * 0.05);
+				fill(255);
+				stroke(189, 131, 45);
+				rect(conveyerWidths[i] + width * 0.05, curConveyerPos + conveyerHeights[j] - height * 0.3, width * 0.01, width * 0.05);
+				fill(200, 30, 0);
+				rect(conveyerWidths[i] + width * 0.05, curConveyerPos + conveyerHeights[j] - height * 0.28, width * 0.01, width * 0.01);
+				rect(conveyerWidths[i] + width * 0.05, curConveyerPos + conveyerHeights[j] - height * 0.32, width * 0.01, width * 0.01);
 				pop();
 			}
 		}
@@ -60,7 +66,9 @@ function draw_one_frame(cur_frac) {
 				rectMode(CENTER);
 				fill(noiseColour);
 				stroke(189, 131, 45);
-				rect(conveyerWidths[i] + width * 0.15, curConveyerPos + conveyerHeights[j] - height * 0.3, 20, 20);
+				rect(conveyerWidths[i] + width * 0.15, curConveyerPos + conveyerHeights[j] - height * 0.3, width * 0.05, width * 0.05);
+				rect(conveyerWidths[i] + width * 0.175, curConveyerPos + conveyerHeights[j] - height * 0.3, width * 0.02, width * 0.05);
+				rect(conveyerWidths[i] + width * 0.125, curConveyerPos + conveyerHeights[j] - height * 0.3, width * 0.02, width * 0.05);
 				pop();
 			}
 		}
@@ -118,6 +126,6 @@ function draw_one_frame(cur_frac) {
 			swayPos = map(cur_frac, 0.76, 1, height / 8, height / 2);
 		}
 		rect(width * 0.5, swayPos, width * 0.15, width * 0.15);
-		fill(50);
+		fill(150);
 		rect(width/2, height/2, width * 0.05, height);
 }
