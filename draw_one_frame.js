@@ -27,7 +27,7 @@ function draw_one_frame(cur_frac) {
 	let noise;
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		stroke(0);
-		fill(180);
+		fill(170);
 
 		for(let i = 0 ; i < conveyerWidths.length-1 ; i++) { 												//conveyers
 			rect(conveyerWidths[i], 0, width * 0.1, height);
@@ -43,7 +43,8 @@ function draw_one_frame(cur_frac) {
 				fill(noiseColour);
 				stroke(189, 131, 45);
 				rect(conveyerWidths[i] + width * 0.05, curConveyerPos + conveyerHeights[j] - height * 0.3, width * 0.05, width * 0.05);
-				fill(255);
+
+				fill(255);																															//taping
 				stroke(189, 131, 45);
 				rect(conveyerWidths[i] + width * 0.05, curConveyerPos + conveyerHeights[j] - height * 0.3, width * 0.01, width * 0.05);
 				fill(200, 30, 0);
@@ -67,6 +68,8 @@ function draw_one_frame(cur_frac) {
 				fill(noiseColour);
 				stroke(189, 131, 45);
 				rect(conveyerWidths[i] + width * 0.15, curConveyerPos + conveyerHeights[j] - height * 0.3, width * 0.05, width * 0.05);
+
+																																								//open sides
 				rect(conveyerWidths[i] + width * 0.175, curConveyerPos + conveyerHeights[j] - height * 0.3, width * 0.02, width * 0.05);
 				rect(conveyerWidths[i] + width * 0.125, curConveyerPos + conveyerHeights[j] - height * 0.3, width * 0.02, width * 0.05);
 				pop();

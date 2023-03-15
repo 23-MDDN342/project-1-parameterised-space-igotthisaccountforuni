@@ -4,7 +4,7 @@ const debugZoomBackground = "#555588"
 const debugZoomScale = 0.5;
 
 // this can be modified after we discuss in lecture
-const buffersPerFrame = 1;
+const buffersPerFrame = 3;
 
 // probably best not to modify anything below this line
 const frameMax = 24;
@@ -42,7 +42,7 @@ function draw () {
   if(debugZoom) {
     translate(0.5 * width, 0.5 * height);
     scale(debugZoomScale);
-    translate(0.5 * -width, 0.5 * -height);    
+    translate(0.5 * -width, 0.5 * -height);
   }
 
   draw_one_frame(cur_frac);
@@ -52,8 +52,8 @@ function draw () {
   if(debugView) {
     textSize(28);
     fill(debugViewText);
-    text("" + (cur_frame/buffersPerFrame).toFixed(2) + " / " + 
-      (animation_max_frames/buffersPerFrame).toFixed(2) + " = " + 
+    text("" + (cur_frame/buffersPerFrame).toFixed(2) + " / " +
+      (animation_max_frames/buffersPerFrame).toFixed(2) + " = " +
       cur_frac.toFixed(2), 50, 50);
   }
 
@@ -89,6 +89,6 @@ function keyTyped() {
     if (recording==false){
       recording = true;
       gifRecorder = new p5recorder (frameMax, 'wallpaper.gif', buffersPerFrame);
-    }    
+    }
   }
 }
