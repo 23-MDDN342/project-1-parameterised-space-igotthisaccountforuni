@@ -1,5 +1,6 @@
 function draw_one_frame(cur_frac) {
 	background(150);
+
 	let conveyerWidths = [
 	  0,
 	  0.20 * width,
@@ -19,16 +20,30 @@ function draw_one_frame(cur_frac) {
 	  1.00 * height,
 		1.20 * height
 	]
+
+	let mainColour = color('#ffffff');	//color('#ffb84d');
+	let backColour = color('#ffb84d');	//color('#fad59d');
+	let noiseColour;
+	let noise;
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		stroke(0);
 		fill(180);
+
 		for(let i = 0 ; i < conveyerWidths.length-1 ; i++) { 												//conveyers
 			rect(conveyerWidths[i], 0, width * 0.1, height);
 		}
 		for (var i = 0 ; i < conveyerWidths.length-1 ; i++) {
 			let curConveyerPos = map(cur_frac, 0, 1, 0, 0.2*height);
+			noise = getNoiseValue(i, height, 1, "noise", 0, 1, 1);
+			noiseColour = lerpColor(mainColour, backColour, noise);
 			for (var j = 0 ; j < conveyerWidths.length ; j++) {
 				line(conveyerWidths[i], curConveyerPos + conveyerHeights[j], conveyerWidths[i] + width * 0.1 , curConveyerPos + conveyerHeights[j]);
+				push();
+				rectMode(CENTER);
+				fill(noiseColour);
+				stroke(189, 131, 45);
+				rect(conveyerWidths[i] + width * 0.05, curConveyerPos + conveyerHeights[j] - height * 0.3, width * 0.05, width * 0.05);
+				pop();
 			}
 		}
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -37,15 +52,22 @@ function draw_one_frame(cur_frac) {
 		}
 		for (var i = 0 ; i < conveyerWidths.length-1 ; i++) {
 			let curConveyerPos = map(cur_frac, 1, 0, 0, 0.2*height);
+			noise = getNoiseValue(i, height, 1, "noise2", 0, 1, 1);
+			noiseColour = lerpColor(mainColour, backColour, noise);
 			for (var j = 0 ; j < conveyerWidths.length ; j++) {
 				line(conveyerWidths[i] + width * 0.1, curConveyerPos + conveyerHeights[j], conveyerWidths[i] + width * 0.2 , curConveyerPos + conveyerHeights[j]);
+				push();
+				rectMode(CENTER);
+				fill(noiseColour);
+				stroke(189, 131, 45);
+				rect(conveyerWidths[i] + width * 0.15, curConveyerPos + conveyerHeights[j] - height * 0.3, 20, 20);
+				pop();
 			}
 		}
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		push();
 		rectMode(CENTER);
 		rect(width/2, height * 0.5, width, 0.3*height);															//main conveyer
-		pop();
+
 		for(let i = 0; i < conveyerWidths.length-1 ; i++) {
 		  let curConveyerPos = map(cur_frac, 0, 1, conveyerWidths[i], conveyerWidths[i+1]);
 			stroke(0);
@@ -58,7 +80,6 @@ function draw_one_frame(cur_frac) {
 			push();
 			fill(242, 182, 92);
 			stroke(189, 131, 45);
-			rectMode(CENTER);
 			rect(curConveyerPos - width * 0.1, height * 0.5, width * 0.1, width * 0.1);
 			pop();
 		}
@@ -67,7 +88,6 @@ function draw_one_frame(cur_frac) {
 			push();
 			fill(255);
 			stroke(189, 131, 45);
-			rectMode(CENTER);
 			rect(curConveyerPos - width * 0.1, height * 0.5, width * 0.02, width * 0.1);
 			fill(200, 30, 0);
 			rect(curConveyerPos - width * 0.1, height * 0.46, width * 0.02, width * 0.02);
@@ -79,7 +99,6 @@ function draw_one_frame(cur_frac) {
 			push();
 			fill(242, 182, 92);
 			stroke(189, 131, 45);
-			rectMode(CENTER);
 			rect(curConveyerPos - width * 0.165, height * 0.5, width * 0.04, width * 0.1);
 			rect(curConveyerPos - width * 0.035, height * 0.5, width * 0.04, width * 0.1);
 			pop();
@@ -98,7 +117,7 @@ function draw_one_frame(cur_frac) {
 		}else {
 			swayPos = map(cur_frac, 0.76, 1, height / 8, height / 2);
 		}
-		rectMode(CENTER);
 		rect(width * 0.5, swayPos, width * 0.15, width * 0.15);
+		fill(50);
 		rect(width/2, height/2, width * 0.05, height);
 }
