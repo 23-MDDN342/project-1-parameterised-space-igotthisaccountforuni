@@ -46,10 +46,10 @@ function draw_one_frame(cur_frac) {
 
 				fill(255);																															//taping
 				stroke(189, 131, 45);
-				rect(conveyerWidths[i] + width * 0.05, curConveyerPos + conveyerHeights[j] - height * 0.3, width * 0.01, width * 0.05);
+				rect(conveyerWidths[i] + width * 0.05, curConveyerPos + conveyerHeights[j] - height * 0.3, width * 0.05, width * 0.01);
 				fill(200, 30, 0);
-				rect(conveyerWidths[i] + width * 0.05, curConveyerPos + conveyerHeights[j] - height * 0.28, width * 0.01, width * 0.01);
-				rect(conveyerWidths[i] + width * 0.05, curConveyerPos + conveyerHeights[j] - height * 0.32, width * 0.01, width * 0.01);
+				rect(conveyerWidths[i] + width * 0.04, curConveyerPos + conveyerHeights[j] - height * 0.3, width * 0.01, width * 0.01);
+				rect(conveyerWidths[i] + width * 0.06, curConveyerPos + conveyerHeights[j] - height * 0.3, width * 0.01, width * 0.01);
 				pop();
 			}
 		}
@@ -70,8 +70,8 @@ function draw_one_frame(cur_frac) {
 				rect(conveyerWidths[i] + width * 0.15, curConveyerPos + conveyerHeights[j] - height * 0.3, width * 0.05, width * 0.05);
 
 																																								//open sides
-				rect(conveyerWidths[i] + width * 0.175, curConveyerPos + conveyerHeights[j] - height * 0.3, width * 0.02, width * 0.05);
-				rect(conveyerWidths[i] + width * 0.125, curConveyerPos + conveyerHeights[j] - height * 0.3, width * 0.02, width * 0.05);
+				rect(conveyerWidths[i] + width * 0.18, curConveyerPos + conveyerHeights[j] - height * 0.3, width * 0.02, width * 0.05);
+				rect(conveyerWidths[i] + width * 0.12, curConveyerPos + conveyerHeights[j] - height * 0.3, width * 0.02, width * 0.05);
 				pop();
 			}
 		}
