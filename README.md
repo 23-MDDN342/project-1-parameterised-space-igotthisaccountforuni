@@ -3,3 +3,5 @@
 Changed idea a couple times. Now am doing a busy packing line. This means I can use more repeated elements and have a more dynamic display than my previous concept.
 
 The fundamental movements haven't changed much but I have made it so noise is incorporated in each row
+
+you wanted depth, you got depth
