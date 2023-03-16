@@ -116,10 +116,14 @@ function draw_one_frame(cur_frac) {
   }
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  for (let i = 0; i < conveyerWidths.length - 1; i++) { //boxes
+  for (let i = 0; i < conveyerWidths.length - 1; i++) {                         //boxes
     let curConveyerPos = map(cur_frac, 0, 1, conveyerWidths[i], conveyerWidths[i + 1]);
     push();
-    fill(242, 182, 92);
+    fill(0, 0, 0, 100);                                                         //shade
+    noStroke();
+    rect(curConveyerPos - width * 0.095, height * 0.51, width * 0.1, width * 0.1);
+
+    fill(242, 182, 92);                                                         //box
     stroke(189, 131, 45);
     rect(curConveyerPos - width * 0.1, height * 0.5, width * 0.1, width * 0.1);
     pop();
