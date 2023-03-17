@@ -38,7 +38,7 @@ function draw_one_frame(cur_frac) {
   }
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  stroke(0);
+  stroke(30);
   fill(170);
 
   for (let i = 0; i < conveyerWidths.length - 1; i++) { 												//conveyers
@@ -70,7 +70,7 @@ function draw_one_frame(cur_frac) {
     }
   }
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  for (let i = 0; i < conveyerWidths.length - 1; i++) { //inverse conveyers
+  for (let i = 0; i < conveyerWidths.length - 1; i++) {                         //inverse conveyers
     rect(conveyerWidths[i] + width * 0.1, 0, width * 0.1, height);
   }
   for (var i = 0; i < conveyerWidths.length - 1; i++) {
@@ -108,15 +108,16 @@ function draw_one_frame(cur_frac) {
   pop();
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  rect(width / 2, height / 2, width, 0.3 * height); //main conveyer
+  rect(width / 2, height / 2, width, 0.3 * height);                             //main conveyer
   for (let i = 0; i < conveyerWidths.length - 1; i++) {
     let curConveyerPos = map(cur_frac, 0, 1, conveyerWidths[i], conveyerWidths[i + 1]);
-    stroke(0);
+    stroke(30);
     line(curConveyerPos, 0.35 * height, curConveyerPos, 0.65 * height);
   }
 
-  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  for (let i = 0; i < conveyerWidths.length - 1; i++) {                         //boxes
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  for (let i = 3; i < conveyerWidths.length - 1; i++) {
     let curConveyerPos = map(cur_frac, 0, 1, conveyerWidths[i], conveyerWidths[i + 1]);
     push();
     fill(0, 0, 0, 100);                                                         //shade
@@ -126,12 +127,8 @@ function draw_one_frame(cur_frac) {
     fill(242, 182, 92);                                                         //box
     stroke(189, 131, 45);
     rect(curConveyerPos - width * 0.1, height * 0.5, width * 0.1, width * 0.1);
-    pop();
-  }
-  for (let i = 3; i < conveyerWidths.length - 1; i++) { //tape
-    let curConveyerPos = map(cur_frac, 0, 1, conveyerWidths[i], conveyerWidths[i + 1]);
-    push();
-    fill(255);
+
+    fill(255);                                                                  //tape
     stroke(189, 131, 45);
     rect(curConveyerPos - width * 0.1, height * 0.5, width * 0.02, width * 0.1);
     fill(200, 30, 0);
@@ -139,20 +136,29 @@ function draw_one_frame(cur_frac) {
     rect(curConveyerPos - width * 0.1, height * 0.54, width * 0.02, width * 0.02);
     pop();
   }
-  for (let i = 0; i < conveyerWidths.length - 4; i++) { //folds
+
+  for (let i = 0; i < conveyerWidths.length - 4; i++) {
     let curConveyerPos = map(cur_frac, 0, 1, conveyerWidths[i], conveyerWidths[i + 1]);
     push();
-    fill(242, 182, 92);
+    fill(0, 0, 0, 100);                                                         //shade
+    noStroke();
+    rect(curConveyerPos - width * 0.095, height * 0.51, width * 0.13, width * 0.1);
+
+    fill(242, 182, 92);                                                         //box
     stroke(189, 131, 45);
-    rect(curConveyerPos - width * 0.165, height * 0.5, width * 0.04, width * 0.1);
-    rect(curConveyerPos - width * 0.035, height * 0.5, width * 0.04, width * 0.1);
+    rect(curConveyerPos - width * 0.1, height * 0.5, width * 0.1, width * 0.1);
+
+    fill(242, 182, 92);                                                         //folds
+    stroke(189, 131, 45);
+    rect(curConveyerPos - width * 0.16, height * 0.5, width * 0.04, width * 0.1);
+    rect(curConveyerPos - width * 0.05, height * 0.5, width * 0.04, width * 0.1);
     pop();
   }
 
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  rect(width * 0.5, swayPos, width * 0.15, width * 0.15);                       //final sway
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  rect(width * 0.5, swayPos, width * 0.15, width * 0.15); //final sway
-
   fill(150);
-  rect(width / 2, height / 2, width * 0.05, height);
+  rect(width / 2, height / 2, width * 0.05, height);                            //central beam
 }
