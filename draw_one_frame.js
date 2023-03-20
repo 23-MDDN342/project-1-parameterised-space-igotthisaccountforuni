@@ -82,14 +82,24 @@ function draw_one_frame(cur_frac) {
       push();
       rectMode(CENTER);
 			noStroke();
-			fill(0, 0, 0, 100);
+
+      fill(0, 0, 0, 100);                                                       //shade
 			rect(conveyerWidths[i] + width * 0.155, curConveyerPos + conveyerHeights[j] - height * 0.295, width * 0.05, width * 0.08);
 
-      fill(noiseColour);
+      fill(noiseColour);                                                        //box
       stroke(189, 131, 45);
       rect(conveyerWidths[i] + width * 0.15, curConveyerPos + conveyerHeights[j] - height * 0.3, width * 0.05, width * 0.05);
 
-      //open sides
+      fill(255, 245, 225);                                                                //content
+      stroke(50);
+      rect(conveyerWidths[i] + width * 0.15, curConveyerPos + conveyerHeights[j] - height * 0.3, width * 0.025, height * 0.03);
+      triangle(
+        conveyerWidths[i] + width * 0.1625, curConveyerPos + conveyerHeights[j] - height * 0.315 ,
+        conveyerWidths[i] + width * 0.1375, curConveyerPos + conveyerHeights[j] - height * 0.315 ,
+        conveyerWidths[i] + width * 0.15, curConveyerPos + conveyerHeights[j] - height * 0.3);
+
+      fill(noiseColour);                                                        //open sides
+      stroke(189, 131, 45);
       rect(conveyerWidths[i] + width * 0.15, curConveyerPos + conveyerHeights[j] - height * 0.35, width * 0.05, width * 0.02);
       rect(conveyerWidths[i] + width * 0.15, curConveyerPos + conveyerHeights[j] - height * 0.25, width * 0.05, width * 0.02);
       pop();
@@ -142,16 +152,24 @@ function draw_one_frame(cur_frac) {
     push();
     fill(0, 0, 0, 100);                                                         //shade
     noStroke();
-    rect(curConveyerPos - width * 0.095, height * 0.51, width * 0.13, width * 0.1);
+    rect(curConveyerPos - width * 0.095, height * 0.51, width * 0.16, width * 0.1);
 
     fill(242, 182, 92);                                                         //box
     stroke(189, 131, 45);
     rect(curConveyerPos - width * 0.1, height * 0.5, width * 0.1, width * 0.1);
 
+    fill(255, 245, 225);                                                                  //content
+    stroke(50);
+    rect(curConveyerPos - width * 0.1, height * 0.5, width * 0.04, height * 0.1);
+    triangle(
+      curConveyerPos - width * 0.12, height * 0.55,
+      curConveyerPos - width * 0.12, height * 0.45,
+      curConveyerPos - width * 0.1, height * 0.5);
+
     fill(242, 182, 92);                                                         //folds
     stroke(189, 131, 45);
     rect(curConveyerPos - width * 0.16, height * 0.5, width * 0.04, width * 0.1);
-    rect(curConveyerPos - width * 0.05, height * 0.5, width * 0.04, width * 0.1);
+    rect(curConveyerPos - width * 0.04, height * 0.5, width * 0.04, width * 0.1);
     pop();
   }
 
