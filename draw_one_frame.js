@@ -1,3 +1,5 @@
+const ease = new p5.Ease();
+
 function draw_one_frame(cur_frac) {
   background(150);
 
@@ -21,10 +23,12 @@ function draw_one_frame(cur_frac) {
     1.20 * height
   ]
 
-  let mainColour = color('#fcecd4'); //color('#ffb84d');												//colours and noise
+  let mainColour = color('#fcecd4'); //color('#ffb84d');
   let backColour = color('#ffb84d'); //color('#fad59d');
   let noiseColour;
   let noise;
+
+  //const easeScale = ease.circularInOut();
 
   let swayPos; //sway thing
   if (cur_frac < 0.26) {
@@ -41,7 +45,7 @@ function draw_one_frame(cur_frac) {
   stroke(30);
   fill(170);
 
-  for (let i = 0; i < conveyerWidths.length - 1; i++) { 												//conveyers
+  for (let i = 0; i < conveyerWidths.length - 1; i++) { //conveyers
     rect(conveyerWidths[i], 0, width * 0.1, height);
   }
   for (var i = 0; i < conveyerWidths.length - 1; i++) {
@@ -52,9 +56,9 @@ function draw_one_frame(cur_frac) {
       line(conveyerWidths[i], curConveyerPos + conveyerHeights[j], conveyerWidths[i] + width * 0.1, curConveyerPos + conveyerHeights[j]);
       push();
       rectMode(CENTER);
-			fill(0, 0, 0, 100);
-			noStroke();
-			rect(conveyerWidths[i] + width * 0.055, curConveyerPos + conveyerHeights[j] - height * 0.29, width * 0.05, width * 0.05);
+      fill(0, 0, 0, 100);
+      noStroke();
+      rect(conveyerWidths[i] + width * 0.055, curConveyerPos + conveyerHeights[j] - height * 0.29, width * 0.05, width * 0.05);
 
       fill(noiseColour);
       stroke(189, 131, 45);
@@ -70,7 +74,7 @@ function draw_one_frame(cur_frac) {
     }
   }
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  for (let i = 0; i < conveyerWidths.length - 1; i++) {                         //inverse conveyers
+  for (let i = 0; i < conveyerWidths.length - 1; i++) { //inverse conveyers
     rect(conveyerWidths[i] + width * 0.1, 0, width * 0.1, height);
   }
   for (var i = 0; i < conveyerWidths.length - 1; i++) {
@@ -81,24 +85,24 @@ function draw_one_frame(cur_frac) {
       line(conveyerWidths[i] + width * 0.1, curConveyerPos + conveyerHeights[j], conveyerWidths[i] + width * 0.2, curConveyerPos + conveyerHeights[j]);
       push();
       rectMode(CENTER);
-			noStroke();
+      noStroke();
 
-      fill(0, 0, 0, 100);                                                       //shade
-			rect(conveyerWidths[i] + width * 0.155, curConveyerPos + conveyerHeights[j] - height * 0.295, width * 0.05, width * 0.08);
+      fill(0, 0, 0, 100); //shade
+      rect(conveyerWidths[i] + width * 0.155, curConveyerPos + conveyerHeights[j] - height * 0.295, width * 0.05, width * 0.08);
 
-      fill(noiseColour);                                                        //box
+      fill(noiseColour); //box
       stroke(189, 131, 45);
       rect(conveyerWidths[i] + width * 0.15, curConveyerPos + conveyerHeights[j] - height * 0.3, width * 0.05, width * 0.05);
 
-      fill(255, 245, 225);                                                                //content
+      fill(255, 245, 225); //content
       stroke(50);
       rect(conveyerWidths[i] + width * 0.15, curConveyerPos + conveyerHeights[j] - height * 0.3, width * 0.025, height * 0.03);
       triangle(
-        conveyerWidths[i] + width * 0.1625, curConveyerPos + conveyerHeights[j] - height * 0.315 ,
-        conveyerWidths[i] + width * 0.1375, curConveyerPos + conveyerHeights[j] - height * 0.315 ,
+        conveyerWidths[i] + width * 0.1625, curConveyerPos + conveyerHeights[j] - height * 0.315,
+        conveyerWidths[i] + width * 0.1375, curConveyerPos + conveyerHeights[j] - height * 0.315,
         conveyerWidths[i] + width * 0.15, curConveyerPos + conveyerHeights[j] - height * 0.3);
 
-      fill(noiseColour);                                                        //open sides
+      fill(noiseColour); //open sides
       stroke(189, 131, 45);
       rect(conveyerWidths[i] + width * 0.15, curConveyerPos + conveyerHeights[j] - height * 0.35, width * 0.05, width * 0.02);
       rect(conveyerWidths[i] + width * 0.15, curConveyerPos + conveyerHeights[j] - height * 0.25, width * 0.05, width * 0.02);
@@ -106,7 +110,7 @@ function draw_one_frame(cur_frac) {
     }
   }
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  rectMode(CENTER); 																														//shades
+  rectMode(CENTER); //shades
   push();
   noStroke();
   fill(0, 0, 0, 100);
@@ -118,7 +122,7 @@ function draw_one_frame(cur_frac) {
   pop();
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  rect(width / 2, height / 2, width, 0.3 * height);                             //main conveyer
+  rect(width / 2, height / 2, width, 0.3 * height); //main conveyer
   for (let i = 0; i < conveyerWidths.length - 1; i++) {
     let curConveyerPos = map(cur_frac, 0, 1, conveyerWidths[i], conveyerWidths[i + 1]);
     stroke(30);
@@ -130,15 +134,15 @@ function draw_one_frame(cur_frac) {
   for (let i = 3; i < conveyerWidths.length - 1; i++) {
     let curConveyerPos = map(cur_frac, 0, 1, conveyerWidths[i], conveyerWidths[i + 1]);
     push();
-    fill(0, 0, 0, 100);                                                         //shade
+    fill(0, 0, 0, 100); //shade
     noStroke();
     rect(curConveyerPos - width * 0.095, height * 0.51, width * 0.1, width * 0.1);
 
-    fill(242, 182, 92);                                                         //box
+    fill(242, 182, 92); //box
     stroke(189, 131, 45);
     rect(curConveyerPos - width * 0.1, height * 0.5, width * 0.1, width * 0.1);
 
-    fill(255);                                                                  //tape
+    fill(255); //tape
     stroke(189, 131, 45);
     rect(curConveyerPos - width * 0.1, height * 0.5, width * 0.02, width * 0.1);
     fill(200, 30, 0);
@@ -150,15 +154,15 @@ function draw_one_frame(cur_frac) {
   for (let i = 0; i < conveyerWidths.length - 4; i++) {
     let curConveyerPos = map(cur_frac, 0, 1, conveyerWidths[i], conveyerWidths[i + 1]);
     push();
-    fill(0, 0, 0, 100);                                                         //shade
+    fill(0, 0, 0, 100); //shade
     noStroke();
     rect(curConveyerPos - width * 0.095, height * 0.51, width * 0.16, width * 0.1);
 
-    fill(242, 182, 92);                                                         //box
+    fill(242, 182, 92); //box
     stroke(189, 131, 45);
     rect(curConveyerPos - width * 0.1, height * 0.5, width * 0.1, width * 0.1);
 
-    fill(255, 245, 225);                                                                  //content
+    fill(255, 245, 225); //content
     stroke(50);
     rect(curConveyerPos - width * 0.1, height * 0.5, width * 0.04, height * 0.1);
     triangle(
@@ -166,7 +170,7 @@ function draw_one_frame(cur_frac) {
       curConveyerPos - width * 0.12, height * 0.45,
       curConveyerPos - width * 0.1, height * 0.5);
 
-    fill(242, 182, 92);                                                         //folds
+    fill(242, 182, 92); //folds
     stroke(189, 131, 45);
     rect(curConveyerPos - width * 0.16, height * 0.5, width * 0.04, width * 0.1);
     rect(curConveyerPos - width * 0.04, height * 0.5, width * 0.04, width * 0.1);
@@ -174,9 +178,11 @@ function draw_one_frame(cur_frac) {
   }
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  rect(width * 0.5, swayPos, width * 0.15, width * 0.15);                       //final sway
+
+  rect(width * 0.5, swayPos, width * 0.15, width * 0.15); //final sway
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
   fill(150);
-  rect(width / 2, height / 2, width * 0.05, height);                            //central beam
+  rect(width / 2, height / 2, width * 0.05, height); //central beam
 }
