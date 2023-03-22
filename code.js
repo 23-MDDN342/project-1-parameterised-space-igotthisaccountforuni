@@ -4,7 +4,7 @@ const debugZoomBackground = "#555588"
 const debugZoomScale = 0.5;
 
 // this can be modified after we discuss in lecture
-const buffersPerFrame = 1;
+const buffersPerFrame = 1; //didn't change this because it messes with how it prints, makes the animation move too quickly
 
 // probably best not to modify anything below this line
 const frameMax = 24;
