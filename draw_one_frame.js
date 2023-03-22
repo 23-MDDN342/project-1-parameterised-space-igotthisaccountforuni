@@ -1,5 +1,4 @@
-const ease = new p5.Ease();
-
+// const ease = new p5.Ease();
 function draw_one_frame(cur_frac) {
   background(150);
 
