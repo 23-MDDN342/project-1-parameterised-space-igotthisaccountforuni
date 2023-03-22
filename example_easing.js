@@ -27,11 +27,11 @@ function draw_one_frame(cur_frac) {
   // print(amount_across, ease_amount_across);
 
   if(going_right) {
-    cur_x1 = map(amount_across, 0, 1, left_x, right_x);
+    // cur_x1 = map(amount_across, 0, 1, left_x, right_x);
     cur_x2 = map(ease_amount_across, 0, 1, left_x, right_x);
   }
   else {
-    cur_x1 = map(amount_across, 0, 1, right_x, left_x)
+    //cur_x1 = map(amount_across, 0, 1, right_x, left_x)
     cur_x2 = map(ease_amount_across, 0, 1, right_x, left_x)
   }
 
@@ -40,15 +40,14 @@ function draw_one_frame(cur_frac) {
   let ellipse_y2 = int(0.75 * height);
 
   textSize(50);
-  fill(0, 0, 255);
-  ellipse(cur_x1, ellipse_y1, ellipse_radius * 2);
+  // fill(0, 0, 255);
+  // ellipse(cur_x1, ellipse_y1, ellipse_radius * 2);
   fill(255, 0, 255);
   ellipse(cur_x2, ellipse_y2, ellipse_radius * 2);
 
   fill(255);
   textAlign(CENTER, CENTER);
   textSize(30);
-  text("A", cur_x1, ellipse_y1);
+  // text("A", cur_x1, ellipse_y1);
   text("B", cur_x2, ellipse_y2);
 }
-
